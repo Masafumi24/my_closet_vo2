@@ -1,0 +1,9 @@
+create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "アイテムの管理" do |t|
+  t.string "image",                                               null: false
+  t.datetime "purchase_date",                                     null: false
+  t.integer "prefecture_id"
+  t.integer "parts_id",                                           null: false
+  t.datetime "created_at",                                        null: false
+  t.datetime "updated_at",                                        null: false
+  t.datetime "deleted_at"
+end

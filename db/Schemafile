@@ -1,0 +1,11 @@
+require 'users.schema'
+
+require 'items.schema'
+
+require 'colors.schema'
+require 'seasons.schema'
+require 'brands.schema'
+
+require 'item_brands.schema'
+require 'item_seasons.schema'
+require 'item_colors.schema'
