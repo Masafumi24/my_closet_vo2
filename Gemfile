@@ -62,3 +62,18 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'foreman'
+gem 'pry-rails'
+gem 'carrierwave'
+gem 'ridgepole'
+gem 'active_hash'
+
+# フロント用のgem
+gem "jquery-rails"
+gem 'font-awesome-sass'
+gem 'html2slim'
+gem 'slim-rails'
+gem "chartkick"
+gem 'chartable'
+gem 'select2-rails'
