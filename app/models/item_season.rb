@@ -1,0 +1,3 @@
+class ItemSeason < ApplicationRecord
+  
+end
