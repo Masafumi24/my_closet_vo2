@@ -1,10 +1,7 @@
 class Api::ItemsController < ApplicationController
-
-  def index
-  end
-
+  
   def create
-    @item = Items.new(tops_params)
+    render json: Item.create(items_params)
   end
 
   private
@@ -14,7 +11,7 @@ class Api::ItemsController < ApplicationController
       :image,
       :purchase_date,
       :prefecture_id,
-      :parts_id
+      :parts_id,
       :brand_name,
       color_ids: [],
       season_ids: [],
