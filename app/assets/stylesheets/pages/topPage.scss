@@ -6,4 +6,11 @@
     background-repeat: no-repeat;
     background-position: bottom;
   }
+  &Chart {
+    display: flex;
+    height: 50vh;
+    &left {
+      width: 50%;
+    }
+  }
 }
