@@ -2,10 +2,11 @@
   .topPage
     Header
     .topPageImage
-    .topPagechart
-      .topPagechartLeft
+    .topPageChart
+      .topPageChartLeft
         Chart
-      .topPagechartRight
+      .topPageChartRight
+        Chart
 </template>
 
 <script>

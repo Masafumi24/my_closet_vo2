@@ -8,8 +8,13 @@
   }
   &Chart {
     display: flex;
-    height: 50vh;
-    &left {
+    width: 100%;
+    &Left {
+      padding: 5rem;
+      width: 50%;
+    }
+    &Right {
+      padding: 5rem;
       width: 50%;
     }
   }

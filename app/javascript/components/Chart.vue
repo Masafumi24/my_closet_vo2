@@ -29,33 +29,9 @@ export default {
               'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
-          },
-          {
-            label: 'Line Dataset',
-            data: [10, 50, 20, 30, 30, 40],
-            borderColor: '#CFD8DC',
-            fill: false,
-            type: 'line',
-            lineTension: 0.3,
           }
         ]
       },
-      options: {
-        scales: {
-          xAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: 'Month'
-            }
-          }],
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              stepSize: 10,
-            }
-          }]
-        }
-      }
     }
   },
   mounted () {
