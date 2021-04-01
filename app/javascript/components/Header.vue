@@ -5,3 +5,13 @@
     a(href="#").headerRightButton
       | menu
 </template>
+
+<script>
+import MainSideBar from '../components/MainSidebar'
+
+export default({
+  components: {
+    MainSideBar
+  }
+})
+</script>
