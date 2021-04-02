@@ -20,3 +20,9 @@
           a.mainMenuSideBarBottomContentListButton
             | 分析する
 </template>
+
+<script>
+  export default({
+  
+  })
+</script>
