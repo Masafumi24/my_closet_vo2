@@ -2,9 +2,9 @@
   header.header
     a(href="#").headerLeftButton
       | MyCloset
-    a.headerRightButton(@click='display')
+    a.headerRightButton(@click='display("open")')
       | menu
-    MainSideBar(v-if='isDisplay')
+    MainSideBar(v-if='isDisplay', @close='display("close")')
 </template>
 
 <script>
@@ -20,8 +20,8 @@ export default({
     }
   },
   methods: {
-    display: function () {
-      this.isDisplay = true;
+    display: function (action) {
+      action === "open" ? this.isDisplay = true : this.isDisplay = false;
     }
   }
 })

@@ -4,7 +4,7 @@
       .mainMenuSideBarTopContent
         a.mainMenuSideBarTopContentLogoutButton
           | ログアウト
-        a.mainMenuSideBarTopContentCloseButton
+        a.mainMenuSideBarTopContentCloseButton(@click='close')
           | ×
       ul.mainMenuSideBarBottomContent
         li.mainMenuSideBarBottomContentList
@@ -23,6 +23,10 @@
 
 <script>
   export default({
-  
+    methods:{
+      close: function(){
+        this.$emit("close");
+      }
+    }
   })
 </script>
