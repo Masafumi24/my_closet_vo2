@@ -1,0 +1,21 @@
+.topPage {
+  &Image {
+    height: 100vh;
+    width: 100%;
+    background-image: image-url("closet_index_top.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  &Chart {
+    display: flex;
+    width: 100%;
+    &Left {
+      padding: 5rem;
+      width: 50%;
+    }
+    &Right {
+      padding: 5rem;
+      width: 50%;
+    }
+  }
+}
