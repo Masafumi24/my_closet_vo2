@@ -1,5 +1,7 @@
 <template lang="pug">
-  router-view
+  div
+    Header
+    router-view
 </template>
 
 <script>
@@ -8,6 +10,8 @@
 
   import TopPage from './pages/topPage.vue'
   import CreateItem from './pages/items/create.vue'
+
+  import Header from './components/Header.vue'
 
   const router = new VueRouter({
     routes: [
@@ -19,6 +23,9 @@
   Vue.use(VueRouter)
 
   export default({ 
-    router
+    router,
+    components: {
+      Header
+    }
   });
 </script>
