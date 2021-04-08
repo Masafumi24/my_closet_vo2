@@ -1,0 +1,25 @@
+.itemsCreate {
+  background-color: rgba(184, 184, 184, 0.2);
+  margin: 0 auto;
+  width: 50%;
+  &TopImage {
+    background-image: image-url("closet_new_header.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    height: 9rem;
+  }
+  &Bottom {
+    box-sizing: border-box;
+    padding: 2rem;
+    &Component {
+      &Title {
+        padding: 1rem;
+      }
+      &Form {
+        height: 2rem;
+        width: 80%;
+      }
+    }
+  }
+}
