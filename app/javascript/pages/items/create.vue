@@ -30,6 +30,13 @@
           option(disabled value='') 選択して下さい
           option(v-for='color in colors' v-bind:value='color.name' v-bind:key='color.id')
             | {{ color.name }}
+      .itemsCreateBottomComponent
+        .itemsCreateBottomComponentTitle
+          | 季節
+        select(v-model="selectedSeasons" multiple).itemsCreateBottomComponentForm
+          option(disabled value='') 選択して下さい
+          option(v-for='season in seasons' v-bind:value='season.name' v-bind:key='season.id')
+            | {{ season.name }}
 </template>
 
 <script>
@@ -38,15 +45,19 @@
   export default {
     data: function () {
       return {
+        colors: [],
         selectedColors: [],
-        colors: []
+        seasons: [],
+        selectedSeasons: []
       }
     },
     mounted () {
       axios
         .get('/api/colors')
         .then(response => (this.colors = response.data))
-      console.log(this.colors)
+      axios
+        .get('/api/seasons')
+        .then(response => (this.seasons = response.data))
     }
   }
 </script>
