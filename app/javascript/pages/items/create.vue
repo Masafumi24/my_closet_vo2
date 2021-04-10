@@ -22,7 +22,10 @@
       .itemsCreateBottomComponent
         .itemsCreateBottomComponentTitle
           | 購入場所
-        select(v-model="selected").itemsCreateBottomComponentForm
+        select(v-model="selectedPrefecture").itemsCreateBottomComponentForm
+          option(disabled value='') 選択して下さい
+          option(v-for='prefecture in prefecture' v-bind:value='prefecture.name' v-bind:key='prefecture.id')
+            | {{ prefecture.name }}
       .itemsCreateBottomComponent
         .itemsCreateBottomComponentTitle
           | 色
@@ -48,7 +51,9 @@
         colors: [],
         selectedColors: [],
         seasons: [],
-        selectedSeasons: []
+        selectedSeasons: [],
+        prefecture: [],
+        selectedPrefecture: null
       }
     },
     mounted () {
@@ -58,6 +63,9 @@
       axios
         .get('/api/seasons')
         .then(response => (this.seasons = response.data))
+      axios
+        .get('/api/prefecture')
+        .then(response => (this.prefecture = response.data))
     }
   }
 </script>
