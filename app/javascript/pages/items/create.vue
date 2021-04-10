@@ -23,10 +23,31 @@
         .itemsCreateBottomComponentTitle
           | 購入場所
         select(v-model="selected").itemsCreateBottomComponentForm
+      .itemsCreateBottomComponent
+        .itemsCreateBottomComponentTitle
+          | 色
+        select(v-model="selected").itemsCreateBottomComponentForm
+          option(disabled value='') 選択して下さい
+          option(v-for='color in colors' v-bind:value='color.name' v-bind:key='color.id')
+            | {{ color.name }}
 </template>
 
 <script>
+  import axios from 'axios';
 
+  export default {
+    data: function () {
+      return {
+        colors: []
+      }
+    },
+    mounted () {
+      axios
+        .get('/api/colors')
+        .then(response => (this.colors = response.data))
+      console.log(this.colors)
+    }
+  }
 </script>
 
 <style lang="scss">
