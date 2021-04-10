@@ -17,6 +17,13 @@
         select(v-model="selected").itemsCreateBottomComponentForm
       .itemsCreateBottomComponent
         .itemsCreateBottomComponentTitle
+          | ブランド
+        select(v-model="selectedBrands" multiple).itemsCreateBottomComponentForm
+          option(disabled value='') 選択して下さい
+          option(v-for='brand in brands' v-bind:value='brand.name' v-bind:key='brand.id')
+            | {{ brand.name }}
+      .itemsCreateBottomComponent
+        .itemsCreateBottomComponentTitle
           | 購入日
         select(v-model="selected").itemsCreateBottomComponentForm
       .itemsCreateBottomComponent
@@ -48,6 +55,8 @@
   export default {
     data: function () {
       return {
+        brands: [],
+        selectedBrands: [],
         colors: [],
         selectedColors: [],
         seasons: [],
@@ -57,6 +66,9 @@
       }
     },
     mounted () {
+      axios
+        .get('/api/brands')
+        .then(response => (this.brands = response.data))
       axios
         .get('/api/colors')
         .then(response => (this.colors = response.data))
