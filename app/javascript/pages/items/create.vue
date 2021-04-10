@@ -26,7 +26,7 @@
       .itemsCreateBottomComponent
         .itemsCreateBottomComponentTitle
           | 色
-        select(v-model="selected").itemsCreateBottomComponentForm
+        select(v-model="selectedColors" multiple).itemsCreateBottomComponentForm
           option(disabled value='') 選択して下さい
           option(v-for='color in colors' v-bind:value='color.name' v-bind:key='color.id')
             | {{ color.name }}
@@ -38,6 +38,7 @@
   export default {
     data: function () {
       return {
+        selectedColors: [],
         colors: []
       }
     },
