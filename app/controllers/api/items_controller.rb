@@ -1,4 +1,5 @@
 class Api::ItemsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   
   def create
     render json: Item.create(items_params)
