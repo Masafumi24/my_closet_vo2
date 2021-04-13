@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   namespace :api, format: 'json' do
     resources :items, only: [:create]
+    resources :brands, only: [:index]
+    resources :colors, only: [:index]
+    resources :seasons, only: [:index]
+    resources :prefecture, only: [:index]
   end
 end

@@ -70,8 +70,4 @@ gem 'foreman'
 gem 'pry-rails'
 gem 'ridgepole'
 gem 'active_hash'
-
-# フロント用のgem
-gem 'font-awesome-sass'
-gem 'html2slim'
-gem 'slim-rails'
+gem 'carrierwave'

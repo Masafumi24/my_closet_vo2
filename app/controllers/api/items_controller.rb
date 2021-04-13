@@ -1,4 +1,5 @@
 class Api::ItemsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   
   def create
     render json: Item.create(items_params)
@@ -7,7 +8,7 @@ class Api::ItemsController < ApplicationController
   private
 
   def items_params
-    params.require(:item).permit(
+    params.permit(
       :image,
       :purchase_date,
       :prefecture_id,

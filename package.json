@@ -2,7 +2,11 @@
   "name": "my_closet_vo2",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
     "@rails/webpacker": "5.2.1",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.4",
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",

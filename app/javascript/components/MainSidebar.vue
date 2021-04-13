@@ -9,7 +9,7 @@
       ul.mainMenuSideBarBottomContent
         li.mainMenuSideBarBottomContentList
           a.mainMenuSideBarBottomContentListButton
-            | 収納する
+            router-link(to='/items/create')| 収納する
         li.mainMenuSideBarBottomContentList
           a.mainMenuSideBarBottomContentListButton
             | クローゼットを見る

@@ -1,0 +1,60 @@
+.itemsCreate {
+  background-color: rgba(184, 184, 184, 0.2);
+  margin: 0 auto;
+  width: 50%;
+  &TopImage {
+    box-sizing: border-box;
+    padding: 2rem;
+    background-image: image-url("closet_new_header.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    height: 9rem;
+    &Text {
+      text-align: center;
+    }
+  }
+  &Bottom {
+    box-sizing: border-box;
+    padding-left: 5rem;
+    &Component {
+      &Image {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+      }
+      &Title {
+        padding: 1rem;
+      }
+      &Select {
+        height: 2rem;
+        width: 80%;
+      }
+      &Form {
+        height: 2rem;
+        width: 79%;
+      }
+      &Icon {
+        margin-left: 1.5rem;
+        height: 2rem;
+        font-size: 1.2rem;
+      }
+    }
+    &Button {
+      display: block;
+      margin: 4rem 0 0 24rem;
+      width: 15%;
+      padding: 0.5rem 3rem;
+      text-align: center;
+      color: #b1921b;
+      border-right: 4px solid #cea82c;
+      border-bottom: 10px solid #987c1e;
+      border-left: 4px solid #ffed8b;
+      border-radius: 0;
+      background: -webkit-gradient(linear, right top, left top, from(#ffd75b), color-stop(30%, #fff5a0), color-stop(40%, #fffabe), color-stop(50%, #ffffdb), color-stop(70%, #fff5a0), to(#fdd456));
+      background: -webkit-linear-gradient(right, #ffd75b 0%, #fff5a0 30%, #fffabe 40%, #ffffdb 50%, #fff5a0 70%, #fdd456 100%);
+      background: linear-gradient(-90deg, #ffd75b 0%, #fff5a0 30%, #fffabe 40%, #ffffdb 50%, #fff5a0 70%, #fdd456 100%);
+      text-shadow: -1px -1px 1px #ffffd9;
+    }
+  }
+}
