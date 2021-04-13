@@ -10,7 +10,7 @@
         .itemsCreateBottomComponentTitle
           | 画像
         .itemsCreateBottomComponentImage
-          input(v-bind:value="image" type="file").itemsCreateBottomComponentImageFile
+          input(@change="fileSelect" type="file" name="file").itemsCreateBottomComponentImageFile
       .itemsCreateBottomComponent
         .itemsCreateBottomComponentTitle
           | 種別
@@ -103,18 +103,27 @@
         .then(response => (this.prefectureList = response.data))
     },
     methods: {
+      fileSelect: function(e) {
+        //選択したファイルの情報を取得しプロパティにいれる
+        this.image = e.target.files[0];
+      },
       createItem: function() {
-        console.log(this.image)
+        //formDataをnewする
+        let formData = new FormData();
+        formData.append('image', this.image);
+        formData.append('purchase_date', this.purchase_date);
+        formData.append('prefecture_id', this.selectedPrefecture);
+        formData.append('parts_id', this.partsId);
+        formData.append('color_ids', this.selectedColors);
+        formData.append('season_ids', this.selectedSeasons);
+        formData.append('brand_ids', this.selectedBrands);
+        let config = {
+          headers: {
+            'content-type': 'multipart/form-data'
+          }
+        };
         axios
-          .post('/api/items', {
-            image: this.image,
-            purchase_date: this.purchase_date,
-            prefecture_id: this.selectedPrefecture,
-            parts_id: this.partsId,
-            color_ids: this.selectedColors,
-            season_ids: this.selectedSeasons,
-            brand_ids: this.selectedBrands
-          })
+          .post('/api/items', formData, config)
       }
     }
   }

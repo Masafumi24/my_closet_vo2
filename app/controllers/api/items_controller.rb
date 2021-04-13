@@ -8,7 +8,7 @@ class Api::ItemsController < ApplicationController
   private
 
   def items_params
-    params.require(:item).permit(
+    params.permit(
       :image,
       :purchase_date,
       :prefecture_id,

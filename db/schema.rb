@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_104636) do
+ActiveRecord::Schema.define(version: 2021_04_13_113444) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "ブランドの管理", force: :cascade do |t|
     t.string "name", null: false
