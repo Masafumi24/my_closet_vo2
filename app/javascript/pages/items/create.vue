@@ -117,6 +117,7 @@
         formData.append('color_ids', this.selectedColors);
         formData.append('season_ids', this.selectedSeasons);
         formData.append('brand_ids', this.selectedBrands);
+        console.log(this.selectedColors)
         let config = {
           headers: {
             'content-type': 'multipart/form-data'
