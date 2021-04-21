@@ -2,7 +2,8 @@ class Api::ItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   def create
-    render json: Item.create(items_params)
+    item = ItemForm.new(items_params)
+    render json: item.save
   end
 
   private
@@ -13,10 +14,10 @@ class Api::ItemsController < ApplicationController
       :purchase_date,
       :prefecture_id,
       :parts_id,
-      :brand_name,
-      color_ids: [],
-      season_ids: [],
-      brand_ids: []
+      :brands_names,
+      :color_ids,
+      :season_ids,
+      :brand_ids
     )
   end
 end
