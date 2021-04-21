@@ -1,4 +1,4 @@
 create_table "item_seasons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "アイテムと季節の中間テーブル" do |t|
-  t.integer  :other_id
+  t.integer  :item_id
   t.integer  :season_id
 end
