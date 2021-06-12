@@ -25,12 +25,7 @@
           option(disabled value='') 選択して下さい
           option(v-for='brand in brands' v-bind:value='brand.id' v-bind:key='brand.id')
             | {{ brand.name }}
-        font-awesome-icon(icon="plus-circle").itemsCreateBottomComponentIcon
-      .itemsCreateBottomComponent
-        .itemsCreateBottomComponentTitle
-          | ブランドを追加する
-        input(v-model="newBrands").itemsCreateBottomComponentForm
-        font-awesome-icon(icon="plus-circle").itemsCreateBottomComponentIcon
+      AddBrandForm(@addBrandClick='addBrandField' v-for="index in brandTextFieldIndexLists" :key="index")
       .itemsCreateBottomComponent
         .itemsCreateBottomComponentTitle
           | 購入日
@@ -62,9 +57,13 @@
 
 <script>
   import axios from 'axios';
+  import AddBrandForm from './add_brand_form.vue'
 
   export default {
-    data: function () {
+    components: {
+      AddBrandForm
+    },
+    data() {
       return {
         partsList: [
           {id: 1, name: "Tops"},
@@ -78,14 +77,15 @@
         partsId: null,
         brands: [],
         selectedBrands: [],
-        newBrands: [],
         colors: [],
         selectedColors: [],
         seasons: [],
         selectedSeasons: [],
         prefectureList: [],
         selectedPrefecture: null,
-        purchase_date: null
+        purchase_date: null,
+        brandTextFieldCurrentIndex: 0,
+        brandTextFieldIndexLists: [0]
       }
     },
     mounted () {
@@ -103,11 +103,15 @@
         .then(response => (this.prefectureList = response.data))
     },
     methods: {
-      fileSelect: function(e) {
+      addBrandField(value) {
+        this.brandTextFieldCurrentIndex += 1
+        this.brandTextFieldIndexLists.push(this.brandTextFieldCurrentIndex)
+      },
+      fileSelect(e) {
         //選択したファイルの情報を取得しプロパティにいれる
         this.image = e.target.files[0];
       },
-      createItem: function() {
+      createItem() {
         //formDataをnewする
         let formData = new FormData();
         formData.append('image', this.image);
