@@ -18,13 +18,7 @@
           option(disabled value='') 選択して下さい
           option(v-for='parts in partsList' v-bind:value='parts.id' v-bind:key='parts.id')
             | {{ parts.name }}
-      .itemsCreateBottomComponent
-        .itemsCreateBottomComponentTitle
-          | ブランド
-        select(v-model="selectedBrands" multiple).itemsCreateBottomComponentSelect
-          option(disabled value='') 選択して下さい
-          option(v-for='brand in brands' v-bind:value='brand.id' v-bind:key='brand.id')
-            | {{ brand.name }}
+      SelectBrandForm
       AddBrandForm(@addBrandClick='addBrandField' v-for="index in brandTextFieldIndexLists" :key="index")
       .itemsCreateBottomComponent
         .itemsCreateBottomComponentTitle
@@ -57,10 +51,12 @@
 
 <script>
   import axios from 'axios';
-  import AddBrandForm from './add_brand_form.vue'
+  import SelectBrandForm from '../../components/form/items/SelectBrandForm.vue';
+  import AddBrandForm from '../../components/form/items/AddBrandForm.vue';
 
   export default {
     components: {
+      SelectBrandForm,
       AddBrandForm
     },
     data() {
@@ -75,8 +71,6 @@
         ],
         image: null,
         partsId: null,
-        brands: [],
-        selectedBrands: [],
         colors: [],
         selectedColors: [],
         seasons: [],
@@ -89,9 +83,6 @@
       }
     },
     mounted () {
-      axios
-        .get('/api/brands')
-        .then(response => (this.brands = response.data))
       axios
         .get('/api/colors')
         .then(response => (this.colors = response.data))
